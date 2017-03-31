@@ -40,7 +40,7 @@ class FruitsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return fruits.count
     }
 
     
@@ -48,8 +48,13 @@ class FruitsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
-
+        //cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
+        //cell.textLabel?.text = fruits[indexPath.row]
+        
+        let fruitName = fruits[indexPath.row]
+        cell.textLabel?.text = fruitName
+        cell.detailTextLabel?.text = "Delicious!"
+        cell.imageView?.image = UIImage(named: fruitName)
         return cell
     }
     
